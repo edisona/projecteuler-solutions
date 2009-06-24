@@ -249,6 +249,7 @@ http://code.google.com/p/projecteuler-solutions/
 245. 
 246. 
 247. 
-248.
-249.
-250. 
+248. 
+249. 
+250. 1425480602091519
+251. 
