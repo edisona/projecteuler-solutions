@@ -1,5 +1,5 @@
 
-Project Euler solutions collected by Luckytoilet, zouyu9631
+Project Euler solutions collected by Luckytoilet, zouyu9631, sarseny
 http://code.google.com/p/projecteuler-solutions/
 
 1. 233168
@@ -242,7 +242,7 @@ http://code.google.com/p/projecteuler-solutions/
 238. 9922545104535661
 239. 0.001887854841
 240. 7448717393364181966
-241. 
+241. 482316491800641154
 242. 997104142249036713
 243. 892371480
 244. 96356848
