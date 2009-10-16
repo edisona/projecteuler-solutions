@@ -104,7 +104,7 @@ isDecimal (f : xs)
 			_ -> False
 isDecimal _ = False
 
--- Solutions partitioned by their answer type.
+-- Solutions with their answer type.
 solutionsByType :: M.Map Int (SolutionType, String)
 solutionsByType = M.mapWithKey getTypeOf solutionsMap where
 	getTypeOf k s
@@ -112,3 +112,27 @@ solutionsByType = M.mapWithKey getTypeOf solutionsMap where
 		| isInt s = (SInteger, s)
 		| isDecimal s = (SDecimal, s)
 		| otherwise = (SOther, s)
+
+-- Solutions partitioned by their answer type.
+solutionsPartitioned :: (M.Map Int String, M.Map Int String, M.Map Int String, M.Map Int String)
+solutionsPartitioned = (fz SInteger, fz SDecimal, fz SOther, fz SUnknown) where
+	fz b = M.map removeType . M.filter ((==) b . fst) $ solutionsByType
+	removeType = \(_,x) -> x
+
+-- Convenience functions.
+integerSolutions, decimalSolutions :: M.Map Int String
+integerSolutions = (\(x,_,_,_) -> x) solutionsPartitioned
+decimalSolutions = (\(_,x,_,_) -> x) solutionsPartitioned
+
+
+
+{-- Demonstration
+ -- Functions. --}
+
+sortedIntegerSolutions = L.sort $ map (readint . snd) $ M.toList integerSolutions
+	where readint :: String -> Int; readint = read
+
+sumOfIntegerSolutions = sum sortedIntegerSolutions
+
+biggestIntegerSolution = maximum sortedIntegerSolutions
+
